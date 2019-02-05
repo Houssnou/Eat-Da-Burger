@@ -1,0 +1,77 @@
+<!-- nav bar  -->
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="./">Eat-Da-Burger! <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" id="search-input" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- end nav bar-->
+{{!-- burger logo --}}
+
+<div class="container">
+  <div class="jumbotron my-4" id="maindisplay" style="background-image:url(img/burger-img.jpg)">
+    {{!-- first row that containts the add form --}}
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4 border-dark">
+          <div class="card-header bg-dark text-light text-capitalize">
+            Add a burger
+          </div>
+          <div class="card-body">
+            <form role="form">
+              <div class="form-row">
+                <div class="form-group col">
+                  <input class="form-control" id="name-input" type="text" placeholder="Enter a burger name">
+                </div>
+              </div>
+              <button class="btn btn-outline-primary btn-lg btn-block" id="add-burger" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {{!-- to eat colum --}}
+      <div class="col-4 d-flex justify-content-center flex-column">
+        <ul class="list-group">
+          <li class="list-group-item disabled">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+          <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+          <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+          <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        </ul>
+      </div>
+      {{!-- input column --}}
+      <div class="col-4 d-flex justify-content-center flex-column">
+        {{!-- button devour on visible when there are some stuff in the left side --}}
+        <button class="btn btn-outline-success btn-lg btn-block" id="add-burger" type="submit">Devour</button>
+      </div>
+      {{!-- eaaten column --}}
+      <div class="col-4 d-flex justify-content-center flex-column">
+        <ul class="list-group">
+          <li class="list-group-item disabled">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+          <li class="list-group-item disabled">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+
+      </div>
+    </div>
+
+  </div>
+</div>
