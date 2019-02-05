@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="./">Eat-Da-Burger! <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="./">Home<span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -38,40 +38,36 @@
         </div>
       </div>
     </div>
+
     <div class="row">
       {{!-- to eat colum --}}
       <div class="col-4 d-flex justify-content-center flex-column">
-        <ul class="list-group">
-          <li class="list-group-item disabled">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-          <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-          <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-          <button type="button" class="list-group-item list-group-item-action" disabled>Vestibulum at eros</button>
+        <ul class="list-group" id="listBurgers">
+          {{#each burgers }}
+
+          {{#unless devoured}}
+          <button type="button" class="to-eat list-group-item list-group-item-action" data-id={{id}}>{{name}}</button>
+          {{/unless}}
+          {{/each}}
         </ul>
       </div>
       {{!-- input column --}}
       <div class="col-4 d-flex justify-content-center flex-column">
         {{!-- button devour on visible when there are some stuff in the left side --}}
-        <button class="btn btn-outline-success btn-lg btn-block" id="add-burger" type="submit">Devour</button>
+        {{!-- <button class="btn btn-outline-success btn-lg btn-block" id="add-burger" type="submit">Devour</button>
+        --}}
       </div>
       {{!-- eaaten column --}}
       <div class="col-4 d-flex justify-content-center flex-column">
-        <ul class="list-group">
-          <li class="list-group-item disabled">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-          <li class="list-group-item disabled">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-
+        <ul class="list-group" id="listEatenBurgers">
+          {{#each burgers }}
+          {{#if devoured}}
+          <button type="button" class="list-group-item list-group-item-action">{{name}}</button>
+          {{/if}}
+          {{/each}}
+        </ul>
       </div>
     </div>
-
   </div>
 </div>
+<script src="assets/js/app.js"></script>

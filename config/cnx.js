@@ -1,6 +1,6 @@
 var mysql = require("mysql");
 
-var cnx;
+let cnx;
 
 // Sets up db to connect locally or on JAWSDB if deployed
 if (process.env.JAWSDB_URL) {
@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
   cnx = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: process.env.MYSQL_PASSWORD,
+    password: "@Watinoma00",
     database: "burgers_db"
   });
 }
