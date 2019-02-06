@@ -1,21 +1,21 @@
 $("#add-burger").on("click", (event) => {
   //avoid reload page
   event.preventDefault();
-  //make the button active
-  console.log("we're in the app.js");
 
   const newBurger = {
     name: $("#name-input").val().trim()
   }
-  console.log(newBurger);
 
+  //console.log(newBurger);
+  //ajax call
   $.ajax({
     url: "/api/burgers",
     method: "POST",
     data: newBurger
   }).then(result => {
-    console.log("success");
-    alert("New Burger Added");
+    //console.log("success");
+    //alert("New Burger Added");
+    $("#name-input").val("")
     location.reload();
   });
 });
@@ -23,18 +23,61 @@ $("#add-burger").on("click", (event) => {
 //event listenner for a click on a list group item
 $(".to-eat").on("click", function (event) {
   event.preventDefault();
-  console.log("i was clicked");
 
+  //console.log("i was clicked");
   $(this).addClass("list-group-item-success");
 
   const burgerId = $(this).attr("data-id");
-  console.log(burgerId);
-  //$(this).tab('show')
-  $.ajax({
-    url: "/api/burgers/" + burgerId,
-    method: "PUT",
-  }).then(result => {
-    alert("Burger devoured!");
+  const burgerName = $(this).attr("data-name");
+
+  $("#confirm-burger").text(burgerName);
+
+  //confirm order burger;
+  $(document).on("click", "#confirm-order", function (event) {
+    // console.log(burgerId);
+    //ajax call to update the burger devoured column
+    $.ajax({
+      url: "/api/burgers/" + burgerId,
+      method: "PUT",
+    }).then(result => {
+      // alert("Burger devoured!");
+      location.reload();
+    });
+  });
+});
+
+//refresh page on when a modal is close to get rid of the selection hover
+$("#confirm-modal").on("hidden.bs.modal", function () {
+  location.reload();
+});
+
+//event listenner for a click on a list group item
+$(".eaten").on("click", function (event) {
+  event.preventDefault();
+
+  //console.log("i was clicked");
+  $(this).addClass("list-group-item-danger");
+
+  const burgerId = $(this).attr("data-id");
+  const burgerName = $(this).attr("data-name");
+
+  // $("#confirm-burger").text(burgerName);
+
+  //confirm order burger;
+  $(document).on("click", "#confirm-delete", function (event) {
+    // console.log(burgerId);
+    //ajax call to update the burger devoured column
+    $.ajax({
+      url: "/api/burgers/" + burgerId,
+      method: "DELETE",
+    }).then(result => {
+      // alert("Burger devoured!");
+      location.reload();
+    });
+  });
+
+  //refresh page on when a modal is close to get rid of the selection hover
+  $("#delete-modal").on("hidden.bs.modal", function () {
     location.reload();
   });
-})
+});

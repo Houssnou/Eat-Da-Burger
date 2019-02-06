@@ -5,8 +5,16 @@ const burgerController = require("../../controllers/burgers_controllers");
 router
   .route("/")
   .get(burgerController.getAllBurgers)
-  .post(burgerController.addBurger)
-  
+  .post(burgerController.addBurger);
+
+
+router
+      .route("/reset")
+      .get( burgerController.resetAll);
+router
+      .route("/clear")
+      .delete(burgerController.deleteAll)
+
 
   //methods for api/burger/:id (PUT)
 router

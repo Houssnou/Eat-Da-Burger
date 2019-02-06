@@ -43,5 +43,27 @@ module.exports = {
       res.json(result);
 
     });
+  },
+  //delete Aallr
+  deleteAll: (req, res) => {
+    cnx.query("delete FROM burgers", (err, result) => {
+      if (err) {
+        console.log("Delete Error: " + err);
+        res.status(400).json(err);
+      };
+      res.json(result);
+
+    });
+  },
+  //Reset All
+  resetAll: (req, res) => {
+    cnx.query("Update burgers set devoured = 0", (err, result) => {
+      if (err) {
+        console.log("Delete Error: " + err);
+        res.status(400).json(err);
+      };
+      res.json(result);
+
+    });
   }
 }
