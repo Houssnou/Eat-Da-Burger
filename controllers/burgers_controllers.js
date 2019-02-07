@@ -59,7 +59,7 @@ module.exports = {
   resetAll: (req, res) => {
     cnx.query("Update burgers set devoured = 0", (err, result) => {
       if (err) {
-        console.log("Delete Error: " + err);
+        console.log("Update Error: " + err);
         res.status(400).json(err);
       };
       res.json(result);

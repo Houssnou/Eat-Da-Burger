@@ -17,7 +17,7 @@
 {{!-- burger logo --}}
 
 <div class="container">
-  <div class="jumbotron my-4" id="maindisplay" style="background-image:url(img/burger-img.jpg)">
+  <div class="jumbotron my-4" id="maindisplay" style="">
     {{!-- first row that containts the add form --}}
     <div class="row">
       <div class="col-12">
@@ -130,7 +130,7 @@
 <footer class="footer mt-4">
   <div class="container">
     <p>Control Panel</p>
-    <p><a href="/api/burgers/clear" id="clear">Clear Table</a> | <a href="/api/reset"> Reinitialize table</a>
+    <p><button type="button" class="btn btn-outline-danger" id="clear">Clear Table</button>  | <button type="button" class="btn btn-outline-success" id="reset">Reset Table</button>
   </div>
 </footer>
 <script src="assets/js/app.js"></script>

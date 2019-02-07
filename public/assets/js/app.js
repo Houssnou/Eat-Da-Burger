@@ -81,3 +81,30 @@ $(".eaten").on("click", function (event) {
     location.reload();
   });
 });
+
+//control panel
+//resetting
+$("#reset").on("click", () => {
+  //
+  console.log("Resetting burgers to non devoured");
+  $.ajax({
+    url: "/api/burgers/reset",
+    method: "PUT"
+  }).then(result => {
+    //reload page
+    location.reload();
+  })
+});
+
+//deleting all burgers
+$("#clear").on("click", () => {
+  //
+  console.log("deleting burgers");
+  $.ajax({
+    url: "/api/burgers/clear",
+    method: "DELETE"
+  }).then(result => {
+    //reload page
+    location.reload();
+  })
+});

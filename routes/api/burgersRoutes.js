@@ -10,7 +10,7 @@ router
 
 router
       .route("/reset")
-      .get( burgerController.resetAll);
+      .put( burgerController.resetAll);
 router
       .route("/clear")
       .delete(burgerController.deleteAll)
